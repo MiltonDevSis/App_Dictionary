@@ -1,6 +1,7 @@
 package com.mpfcoding.app_dictionary.feature_dictionary.data.remote.dto
 
-import com.mpfcoding.app_dictionary.feature_dictionary.domain.model.WordInfo
+import com.mpfcoding.app_dictionary.feature_dictionary.data.local.entity.WordInfoEntity
+
 
 data class WordInfoDto(
     val meanings: List<MeaningDto>,
@@ -9,9 +10,9 @@ data class WordInfoDto(
     val phonetics: List<PhoneticDto>,
     val word: String
 ){
-    fun toWordInfo(): WordInfo{
-        return WordInfo(
-            meanings = meanings.map { it.toMeaning() },
+    fun toWordInfoEntity(): WordInfoEntity {
+        return WordInfoEntity(
+            meaning = meanings.map { it.toMeaning() },
             origin = origin,
             phonetic = phonetic,
             word = word
